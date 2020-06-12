@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter xml:id="building" version="5.0.1" xmlns="http://docbook.org/ns/docbook"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xsi:schemaLocation="http://docbook.org/ns/docbook https://docbook.org/xml/5.0.1/xsd/docbook.xsd
+	http://www.w3.org/1999/xlink https://docbook.org/xml/5.0.1/xsd/xlink.xsd
+	http://www.w3.org/XML/1998/namespace https://docbook.org/xml/5.0.1/xsd/xml.xsd">
+	<title>Building</title>
+	<section>
+		<title>On CentOS or Red Hat Enterprise Linux</title>
+		<section>
+			<title>Pre-requisites</title>
+			<para>
+				<screen><![CDATA[# Make sure the environment is up-to-date
+# Install tools
+sudo yum install java-11-openjdk-devel maven git rpm-build
+# Make sure Maven is using JDK 11
+sudo echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk/" > /etc/java/maven.conf
+]]></screen>
+			</para>
+		</section>
+		<section>
+			<title>First build or after releases</title>
+			<para>
+				<screen><![CDATA[# Full Maven build
+mvn clean argeo-osgi:pde-sources install -PJSConfig
+]]></screen>
+			</para>
+		</section>
+		<section>
+			<title>Regular builds</title>
+			<para>
+				<screen><![CDATA[# Default
+mvn clean install
+]]></screen>
+			</para>
+		</section>
+		<section>
+			<title>SNAPSHOT RPMs</title>
+			<para>(Make sure your user has write access to /srv/rpmfactory)
+			</para>
+			<para>
+				<screen><![CDATA[# Fully functional RPMs
+mvn clean install -Prpmbuild-tp,rpmbuild
+createrepo /srv/rpmfactory/argeo-osgi-2/el7/
+]]></screen>
+			</para>
+		</section>
+	</section>
+</chapter>

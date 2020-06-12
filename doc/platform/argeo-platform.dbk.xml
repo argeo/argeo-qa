@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book version="5.0.1" xmlns="http://docbook.org/ns/docbook"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude"
+	xsi:schemaLocation="http://docbook.org/ns/docbook https://docbook.org/xml/5.0.1/xsd/docbook.xsd
+	http://www.w3.org/1999/xlink https://docbook.org/xml/5.0.1/xsd/xlink.xsd
+	http://www.w3.org/XML/1998/namespace https://docbook.org/xml/5.0.1/xsd/xml.xsd">
+	
+	<xi:include href="overview.dbk.xml" />
+	<xi:include href="building.dbk.xml" />
+	<xi:include href="deploying.dbk.xml" />
+</book>
