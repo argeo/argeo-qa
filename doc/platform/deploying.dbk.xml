@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<chapter xml:id="deploying" version="5.0.1" xmlns="http://docbook.org/ns/docbook"
+<chapter xml:id="deploying" version="5.0.1"
+	xmlns="http://docbook.org/ns/docbook"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns:xml="http://www.w3.org/XML/1998/namespace"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,49 +9,115 @@
 	http://www.w3.org/1999/xlink https://docbook.org/xml/5.0.1/xsd/xlink.xsd
 	http://www.w3.org/XML/1998/namespace https://docbook.org/xml/5.0.1/xsd/xml.xsd">
 	<title>Deploying</title>
+	<para>This chapter describes the standard deployments of an Argeo
+		Platform on CentOS or RHEL 8. Before deploying one should consider the
+		authorisation mechanisms that will be used (based on local files,
+		LDAP, or authd) and the backend for the Jackrabbit repository (Java H2
+		database or PostgreSQL).
+	</para>
 	<section>
-		<title>On CentOS or Red Hat Enterprise Linux</title>
+		<title>Preparation</title>
 		<section>
-			<title>Clean installation</title>
+			<title>Third-party software installation</title>
 			<para>
 				<screen><![CDATA[# Make sure the environment is up-to-date
 sudo yum clean all
 sudo yum update
-# Install standard third-parties
+# Java 11 is always required
 sudo yum install java-11-openjdk-headless
-# Install the Argeo platform
-sudo yum install argeo-node argeo-cms-e4-rap
-# Required only for local access to the OSGi console (telnet localhost 2323):
+# Telnet is optionally useful only for local access to the OSGi console (telnet localhost 2323)
 sudo yum install telnet
-# Reload systemd
-sudo systemctl daemon-reload
-# Start system
-sudo systemctl start argeo
-# Check log
-sudo tail -200f /var/log/messages
-# Make sure that the service is started after a server restart:
-systemctl enable argeo
+# PostgreSQL is required if it used as Jackrabbit backend and deployed on the same host
+sudo yum install postgresql-server
+# 389 Directory Server is required if it used a user referential and deployed on the same host
+sudo yum install 389-ds-base
 ]]></screen>
-			</para>
-			<para>By default the system is accessible via HTTP port 8080:
-				http://localhost:8080/cms/devops
 			</para>
 		</section>
 		<section>
-			<title>Update</title>
+			<title>Argeo software installation</title>
 			<para>
-				<screen><![CDATA[# Stop system
-sudo systemctl stop argeo
-# Make sure the environment is up-to-date
-sudo yum clean all
-sudo yum update
+				<screen><![CDATA[# Install the Argeo release
+sudo rpm -Uvh http://repo.argeo.org/rpm/argeo2-release-latest-7.noarch.rpm
+# Install the Argeo platform
+sudo yum install argeo-node argeo-cms-e4-rap
 # Reload systemd
 sudo systemctl daemon-reload
-# Start system
-sudo systemctl start argeo
-# Check log
-sudo tail -200f /var/log/messages
 ]]></screen>
+			</para>
+		</section>
+		<section>
+			<title>Initialise the PostgreSQL database (optional)</title>
+			<para>First, init the PostgreSQL data:</para>
+			<para>
+				<screen><![CDATA[sudo postgresql-setup --initdb]]></screen>
+			</para>
+			<para>
+				Then edit
+				<filename>/var/lib/pgsql/data/pg_hba.conf</filename>
+				and trust local access, so that the java process can access the
+				database:
+			</para>
+			<para>
+				<screen><![CDATA[# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+				]]>
+				</screen>
+			</para>
+			<para>If the PostgreSQL server is running on another host, or you
+				want to access it with external clients, you should also authorize
+				the related network:
+			</para>
+			<para>
+				<screen><![CDATA[host    all             all             192.168.122.0/24        trust]]>
+				</screen>
+			</para>
+			<para>
+				And edit
+				<filename>/etc/postgresql.conf</filename>
+				:
+			</para>
+			<para>
+				<screen><![CDATA[listen_addresses = '*']]></screen>
+			</para>
+			<para>Finally, start the PostgreSQL server and create a database
+				user:
+			</para>
+			<para>
+				<screen><![CDATA[# Start the database server
+sudo systemctl enable --now postgresql
+# Create a database user
+export DB_USER=argeo
+export DB_NAME=argeo
+sudo -i -u postgres psql -c "DROP USER $DB_USER;"
+sudo -i -u postgres psql -c "CREATE USER $DB_USER WITH PASSWORD 'changeit';"
+# Create the database
+sudo -i -u postgres psql -c "CREATE DATABASE $DB_NAME WITH OWNER $DB_USER;"
+]]></screen>
+			</para>
+		</section>
+		<section>
+			<title>Initialise the 389 LDAP server (optional)</title>
+			<para>
+				Create a file
+				<filename>argeo-slapd-setup.inf</filename>
+				:
+			</para>
+			<para>
+				<screen><![CDATA[[general]
+[slapd]
+instance_name = argeo
+root_dn = cn=Directory Manager
+root_password = argeoargeo
+
+[backend-userroot]
+suffix = dc=example,dc=com]]></screen>
+			</para>
+			<para>Then, create a new instance:</para>
+			<para>
+				<screen><![CDATA[sudo dscreate from-file argeo-slapd-setup.inf]]></screen>
 			</para>
 		</section>
 		<section>
@@ -61,10 +128,45 @@ sudo firewall-cmd --add-port 8080/tcp
 ]]></screen>
 			</para>
 		</section>
-		<section>
-			<title>Apache reverse proxy</title>
-			<para>
-				<screen><![CDATA[<IfModule mod_ssl.c>
+	</section>
+	<section>
+		<title>Configuration and first initialisation</title>
+		<para>
+			Before starting the system for the first time, one must at least
+			configure
+		</para>
+		<itemizedlist mark='bullet'>
+			<listitem>
+				<para>the user referential, with a specific LDAP base DN</para>
+				<para>
+					the backend for the
+					<database class="name">node</database>
+					Jackrabbit repository
+				</para>
+			</listitem>
+		</itemizedlist>
+		<para>
+			These basic options can be configured via the
+			<filename>/etc/argeo/argeo.ini</filename>
+			file.
+		</para>
+		<para>
+			<screen><![CDATA[# Make sure the environment is up-to-date
+# Start system
+sudo systemctl enable --now argeo
+# Check log
+sudo tail -200f /var/log/messages
+]]></screen>
+		</para>
+		<para>
+			By default the system is accessible via HTTP port 8080:
+			<link xlink:href="http://localhost:8080/cms/devops" />
+		</para>
+	</section>
+	<section>
+		<title>Apache reverse proxy</title>
+		<para>
+			<screen><![CDATA[<IfModule mod_ssl.c>
 <VirtualHost <external IP address>:443>
   ServerName <external hostname>
   CustomLog logs/<external hostname>-access_log combined
@@ -86,7 +188,23 @@ SSLCertificateChainFile <path to certificates>/chain.pem
 </VirtualHost>
 </IfModule>
 ]]></screen>
-			</para>
-		</section>
+		</para>
+	</section>
+	<section>
+		<title>Update</title>
+		<para>
+			<screen><![CDATA[# Stop system
+sudo systemctl stop argeo
+# Make sure the environment is up-to-date
+sudo yum clean all
+sudo yum update
+# Reload systemd
+sudo systemctl daemon-reload
+# Start system
+sudo systemctl start argeo
+# Check log
+sudo tail -200f /var/log/messages
+]]></screen>
+		</para>
 	</section>
 </chapter>

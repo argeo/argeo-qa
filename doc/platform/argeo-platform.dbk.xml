@@ -9,6 +9,6 @@
 	http://www.w3.org/XML/1998/namespace https://docbook.org/xml/5.0.1/xsd/xml.xsd">
 	
 	<xi:include href="overview.dbk.xml" />
-	<xi:include href="building.dbk.xml" />
 	<xi:include href="deploying.dbk.xml" />
+	<xi:include href="building.dbk.xml" />
 </book>
