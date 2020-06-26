@@ -11,6 +11,8 @@ h3.title {font-size:1.15em;color:#F57900;}
 h1.title, h2.title{color:#0C274E; }
 
 
+div.toc {padding:.5em 2em;border:1px solid #ccc;background-color:#eee;border-radius:.25em;}
+
 div.toc p:first-child {}
 div.toc p:first-child::after{ content:" :";}
 
@@ -18,7 +20,9 @@ a{color:inherit;text-decoration:none;}
 
 a:hover{text-decoration:underline;}
 
+/*
 dl.toc{padding:1em 2em;border:1px solid #ccc;background-color:#eee;border-radius:.25em;}
+*/
 
 pre.screen{color:white;background-color:#333;padding:1em;border-radius:.5em;}
 
