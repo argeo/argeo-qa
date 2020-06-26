@@ -138,6 +138,8 @@ sudo firewall-cmd --add-port 8080/tcp
 		<itemizedlist mark='bullet'>
 			<listitem>
 				<para>the user referential, with a specific LDAP base DN</para>
+			</listitem>
+			<listitem>
 				<para>
 					the backend for the
 					<database class="name">node</database>
