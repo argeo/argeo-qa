@@ -2,8 +2,9 @@
 
 # default is CentOS 8
 if [ -z "$XSL" ]; then
-	XSL=/usr/share/sgml/docbook/xsl-stylesheets/xhtml/docbook.xsl
+	XSL=/usr/share/sgml/docbook/xsl-stylesheets/xhtml/chunk.xsl
 fi
+
 DIR=`dirname $0`
 
 xsltproc --xinclude \
