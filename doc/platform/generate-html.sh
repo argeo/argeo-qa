@@ -9,6 +9,8 @@ DIR=`dirname $0`
 
 xsltproc --xinclude \
 	--stringparam html.stylesheet $DIR/argeo.css \
+	--stringparam navig.graphics 1 \
+    --stringparam navig.graphics.extension .png \
 	--output $DIR/argeo-platform.html \
 	$XSL \
 	$DIR/argeo-platform.dbk.xml

@@ -1,30 +1,69 @@
-body {
-	font-family: sans-serif;
+/*
+ARGEO docbook styles
+last revision : 4 / 7 / 2020
+*/
+
+
+body{
+margin:0;
+padding:0;
+font-family:sans-serif;
+background-color:#fff;
+/* colors */
+--primary-title:#00294b;
+--secundary-title:#ff8d1f;
+--argeo-light:#f5702e;
+--argeo-night:#00192c;
+--light-text:#ddd;
 }
 
-div.book {max-width:960px;margin:auto;}
+/* 
+generic elements 
+*/
 
-.title{margin-top:1.75em;}
-h1.title {font-size:2.5em;}
-h2.title {font-size:1.45em;}
-h3.title {font-size:1.15em;color:#F57900;}
-h1.title, h2.title{color:#0C274E; }
-
-
-div.toc {padding:.5em 2em;border:1px solid #ccc;background-color:#eee;border-radius:.25em;}
-
-div.toc p:first-child {}
-div.toc p:first-child::after{ content:" :";}
-
+hr {display:none;}
 a{color:inherit;text-decoration:none;}
-
 a:hover{text-decoration:underline;}
 
 /*
-dl.toc{padding:1em 2em;border:1px solid #ccc;background-color:#eee;border-radius:.25em;}
+navigation 
 */
 
-pre.screen{color:white;background-color:#333;padding:1em;border-radius:.5em;}
+.navheader, .navfooter{color:white;background-color:var(--argeo-night);padding:.5em 1em;}
+.navheader {margin-bottom:3rem;}
+.navfooter{margin-top:4.5rem;}
+th,td{vertical-align:middle;letter-spacing:.5px;}
+table tr:nth-child(1) th{font-size:1.5rem;}
+table tr:nth-child(2) th{color:var(--light-text);}
 
-.section p{line-height:1.5em;}
 
+/*
+main content
+*/
+
+.book, .chapter, .section {max-width:960px;margin:auto;}
+h1,h2{color:var(--primary-title);}
+h3{color:var(--secundary-title);}
+
+h1{font-size:2.5rem;}
+h2{font-size:1.75rem;}
+pre.screen{padding:.75em; color:white; background-color:#333;border-radius:0.5em;}
+code.filename{background-color:var(--light-text);display:inline-block;padding:.5em;margin:0 .5em;position:relative;top:-1px;}
+
+/*
+toc
+*/
+
+div.toc>p{color:white;background-color:var(--primary-title);padding:.5em 1em;margin:0;}
+dl.toc{padding:1em;border:1px solid #333;margin-top:0;background-color:var(--light-text);}
+
+/*
+title page
+*/
+
+.book{box-sizing:border-box;background:linear-gradient(to bottom,var(--argeo-night),var(--primary-title));padding:3rem 7rem;}
+.book h1.title{color:white;font-weight:normal;font-size:4.5rem;letter-spacing:1px;text-align:center;}
+.book h2.subtitle{max-width:700px;margin:auto;color:white;font-size:1.75rem;font-weight:normal;text-align:center;margin-bottom:5rem;}
+.book h3{text-align:right;}
+.book p.pubdate{color:var(--secundary-title);font-weight:bold;text-align:right;}
+.book div.toc{margin-top:3rem;}
