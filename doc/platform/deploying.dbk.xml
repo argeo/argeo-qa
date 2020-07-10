@@ -50,7 +50,7 @@ sudo systemctl daemon-reload
 			<title>Initialise the PostgreSQL database (optional)</title>
 			<para>First, init the PostgreSQL data:</para>
 			<para>
-				<screen><![CDATA[sudo postgresql-setup --initdb]]></screen>
+				<screen><![CDATA[sudo postgresql-setup initdb]]></screen>
 			</para>
 			<para>
 				Then edit
@@ -67,7 +67,7 @@ host    all             all             ::1/128                 trust
 				</screen>
 			</para>
 			<para>If the PostgreSQL server is running on another host, or you
-				want to access it with external clients, you should also authorize
+				want to access it with external clients, you should also authorise
 				the related network:
 			</para>
 			<para>
@@ -76,7 +76,7 @@ host    all             all             ::1/128                 trust
 			</para>
 			<para>
 				And edit
-				<filename>/etc/postgresql.conf</filename>
+				<filename>/var/lib/pgsql/data/postgresql.conf</filename>
 				:
 			</para>
 			<para>
@@ -124,7 +124,8 @@ suffix = dc=example,dc=com]]></screen>
 			<title>Firewall</title>
 			<para>
 				<screen><![CDATA[# Open port 8080
-sudo firewall-cmd --add-port 8080/tcp
+sudo firewall-cmd --permanent --add-port 8080/tcp
+sudo firewall-cmd --reload
 ]]></screen>
 			</para>
 		</section>
