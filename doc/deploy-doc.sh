@@ -28,4 +28,4 @@ rsync -av --exclude '.*' --exclude '*.sh' --exclude 'argeo.css' $DIR/www/ $WWW_D
 rsync -av $DIR/theme/argeo.css $WWW_DIR
 
 # Deploy gitweb CSS
-rsync -av $DIR/gitweb/argeo-gitweb.css /var/www/git/argeo-gitweb.css
+cp $DIR/gitweb/argeo-gitweb.css /var/www/git/argeo-gitweb.css
