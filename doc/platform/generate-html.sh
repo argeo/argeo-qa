@@ -5,7 +5,7 @@ if [ -z "$XSL" ]; then
 	XSL=/usr/share/sgml/docbook/xsl-stylesheets/xhtml/chunk.xsl
 fi
 
-DIR=`dirname $0`
+DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 xsltproc --xinclude \
 	--stringparam html.stylesheet $DIR/argeo.css \
