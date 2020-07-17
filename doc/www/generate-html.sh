@@ -8,7 +8,7 @@ fi
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 xsltproc --xinclude \
-	--stringparam html.stylesheet $DIR/argeo.css \
+	--stringparam html.stylesheet argeo.css \
 	--stringparam generate.toc "qandaset toc" \
 	--output $DIR/index.html \
 	$XSL \

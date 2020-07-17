@@ -8,7 +8,7 @@ fi
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 xsltproc --xinclude \
-	--stringparam html.stylesheet $DIR/argeo.css \
+	--stringparam html.stylesheet argeo.css \
 	--stringparam navig.graphics 1 \
     --stringparam navig.graphics.extension .png \
 	--output $DIR/argeo-platform.html \
