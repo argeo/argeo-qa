@@ -12,11 +12,20 @@ git -C $DIR pull
 $DIR/platform/generate-html.sh
 $DIR/www/generate-html.sh
 
-# Deploy
-rm -rf $WWW_DIR/*
-mkdir -p $WWW_DIR/$ARGEO_DOC
-rsync -av --exclude ".*" --exclude "*.sh" --exclude "argeo.css" --exclude "www" $DIR/ $WWW_DIR/$ARGEO_DOC
-rsync -av $DIR/theme/argeo.css $WWW_DIR/$ARGEO_DOC
+# Clean up
+rm -f $WWW_DIR/*.html
+rm -f $WWW_DIR/*.xml
+rm -f $WWW_DIR/*.css
+rm -rf $WWW_DIR/$ARGEO_DOC/platform
 
-rsync -av --exclude ".*" --exclude "*.sh" --exclude "argeo.css" $DIR/www/ $WWW_DIR
+# Deploy platform doc
+mkdir -p $WWW_DIR/$ARGEO_DOC
+rsync -av --exclude '.*' --exclude '*.sh' --exclude 'argeo.css' $DIR/platform/ $WWW_DIR/$ARGEO_DOC/platform
+rsync -av $DIR/theme/argeo.css $WWW_DIR/$ARGEO_DOC/platform
+
+# Deploy www
+rsync -av --exclude '.*' --exclude '*.sh' --exclude 'argeo.css' $DIR/www/ $WWW_DIR
 rsync -av $DIR/theme/argeo.css $WWW_DIR
+
+# Deploy gitweb CSS
+rsync -av $DIR/gitweb/argeo-gitweb.css /var/www/git/argeo-gitweb.css
