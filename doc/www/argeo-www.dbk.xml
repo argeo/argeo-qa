@@ -10,77 +10,155 @@
 	<para>While Argeo GmbH, a European company based in Berlin, provides commercial services around the Argeo platform and applications, and lead their development, the Argeo.org infrastructure is solely focused on development resources. The goal of these resources is to allow current and former Argeo GmbH's clients, as well as the general public, to be able to analyse, use, modify and deploy the provided software.</para>
 	<section>
 		<title>Quick Links</title>
-		<para>
-			<emphasis role="bold">Argeo Platform</emphasis>
-			- a platform to quickly develop and deploy enterprise-grade Java applications
-			<link xlink:href="./argeo-2.1/doc/platform">documentation</link>
-			<itemizedlist mark='bullet'>
+		<section>
+			<title>Argeo Platform</title>
+			<para>a platform to quickly develop and deploy enterprise-grade Java applications</para>
+			<itemizedlist>
 				<listitem>
 					<para>
-						<emphasis role="bold">Argeo Commons</emphasis>
-						- a Java content management system integrating OSGi, JCR and Eclipse RAP/RCP
-						<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-commons.git">git</link>
-						<link xlink:href="./argeo-2.1/site/argeo-commons/apidocs/">javadoc</link>
-						<link xlink:href="./argeo-2.1/site/argeo-commons/xref/">code</link>
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						<emphasis role="bold">Argeo Distribution</emphasis>
-						- a curated distribution of third-party OSGi bundles
-						<link xlink:href="http://git.argeo.org/?p=gpl/argeo-tp.git">git</link>
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						<emphasis role="bold">Argeo SLC</emphasis>
-						- additional ALM tooling to optimise the build/test/deploy system lifecycle
-						<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-slc.git">git</link>
-						<link xlink:href="./argeo-2.1/site/argeo-slc/apidocs/">javadoc</link>
-						<link xlink:href="./argeo-2.1/site/argeo-slc/xref/">code</link>
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						<emphasis role="bold">Argeo Maven Plugins</emphasis>
-						- custom Maven plugins
-						<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-maven.git">git</link>
-						<link xlink:href="./argeo-2.1/site/maven-argeo-osgi-plugin/apidocs/">javadoc</link>
-						<link xlink:href="./argeo-2.1/site/maven-argeo-osgi-plugin/xref/">code</link>
+						<link xlink:href="./argeo-2.1/doc/platform">documentation</link>
 					</para>
 				</listitem>
 			</itemizedlist>
-		</para>
-		<para>
-			<emphasis role="bold">Argeo Productivity</emphasis>
-			- niche-focused applications improving an organisation's productivity, while providing with full control on its data.
-			<link xlink:href="./argeo-2.1/doc/productivity">documentation</link>
-			<itemizedlist mark='bullet'>
+			<section>
+				<title>Argeo Commons</title>
+				<para>a Java content management system integrating OSGi, JCR and Eclipse RAP/RCP</para>
+				<itemizedlist>
+					<listitem>
+						<para>
+							<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-commons.git">git</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-commons/apidocs/">javadoc</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-commons/xref/">code</link>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section>
+				<title>Argeo Distribution</title>
+				<para>a curated distribution of third-party OSGi bundles</para>
+				<itemizedlist>
+					<listitem>
+						<para>
+							<link xlink:href="http://git.argeo.org/?p=gpl/argeo-tp.git">git</link>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section>
+				<title>Argeo SLC</title>
+				<para>additional ALM tooling to optimise the build/test/deploy system lifecycle</para>
+				<itemizedlist>
+					<listitem>
+						<para>
+							<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-slc.git">git</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-slc/apidocs/">javadoc</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-slc/xref/">code</link>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section>
+				<title>Argeo Maven Plugins</title>
+				<para>custom Maven plugins</para>
+				<itemizedlist>
+					<listitem>
+						<para>
+							<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-maven.git">git</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/maven-argeo-osgi-plugin/apidocs/">javadoc</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/maven-argeo-osgi-plugin/xref/">code</link>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</section>
+		</section>
+		<section>
+			<title>Argeo Productivity</title>
+			<para>niche-focused applications improving an organisation's productivity, while providing with full control on its data.</para>
+			<itemizedlist>
 				<listitem>
 					<para>
-						<emphasis role="bold">Argeo Suite</emphasis>
-						- a suite of simple but enterprise-grade productivity applications
-						<link xlink:href="http://git.argeo.org/?p=gpl/argeo-suite.git">git</link>
-						<link xlink:href="./argeo-2.1/site/argeo-suite/apidocs/">javadoc</link>
-						<link xlink:href="./argeo-2.1/site/argeo-suite/xref/">code</link>
-					</para>
-				</listitem>
-				<listitem>
-					<para>
-						<emphasis role="bold">Argeo Connect</emphasis>
-						- a Java framework to develop productivity applications or extensions
-						<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-connect.git">git</link>
-						<link xlink:href="./argeo-2.1/site/argeo-connect/apidocs/">javadoc</link>
-						<link xlink:href="./argeo-2.1/site/argeo-connect/xref/">code</link>
+						<link xlink:href="./argeo-2.1/doc/productivity">documentation</link>
 					</para>
 				</listitem>
 			</itemizedlist>
-		</para>
-		<para>
-			<emphasis role="bold">Argeo QA</emphasis>
-			- documentation, deployment scripts, tests around Argeo software.
-			<link xlink:href="http://git.argeo.org/?p=gpl/argeo-qa.git">git</link>
-		</para>
+			<section>
+				<title>Argeo Suite</title>
+				<para>a suite of simple but enterprise-grade productivity applications</para>
+				<itemizedlist>
+					<listitem>
+						<para>
+							<link xlink:href="http://git.argeo.org/?p=gpl/argeo-suite.git">git</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-suite/apidocs/">javadoc</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-suite/xref/">code</link>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</section>
+			<section>
+				<title>Argeo Connect</title>
+				<para>a Java framework to develop productivity applications or extensions</para>
+				<itemizedlist>
+					<listitem>
+						<para>
+							<link xlink:href="http://git.argeo.org/?p=lgpl/argeo-connect.git">git</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-connect/apidocs/">javadoc</link>
+						</para>
+					</listitem>
+					<listitem>
+						<para>
+							<link xlink:href="./argeo-2.1/site/argeo-connect/xref/">code</link>
+						</para>
+					</listitem>
+				</itemizedlist>
+			</section>
+		</section>
+		<section>
+			<title>Argeo QA</title>
+			<para>documentation, deployment scripts, tests around Argeo software.</para>
+			<itemizedlist>
+				<listitem>
+					<para>
+						<link xlink:href="http://git.argeo.org/?p=gpl/argeo-qa.git">git</link>
+					</para>
+				</listitem>
+			</itemizedlist>
+		</section>
 	</section>
 	<section>
 		<title>Overview</title>
