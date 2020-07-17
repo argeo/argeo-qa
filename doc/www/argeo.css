@@ -1,6 +1,6 @@
 /*
 ARGEO docbook styles
-last revision : 4 / 7 / 2020
+last revision : 16 / 7 / 2020
 */
 
 
@@ -72,34 +72,39 @@ title page
 article
 */
 
-.article {max-width:960px;margin:auto;}
-.article h2.title {text-align:center;font-size:4.5rem;margin-bottom:1.5rem;}
-.article h3.subtitle{width:75%;margin:auto;text-align:center;font-weight:normal;letter-spacing:.5px;font-size:1.75rem;font-family:monospace;margin-bottom:3rem;}
-.article p {line-height:1.5em;text-align:center;}
+.article {max-width:960px;margin:auto;padding-left:3rem;color:#333;}
+.article h2.title {font-size:4.5rem;margin-top:1.5rem;margin-bottom:0;font-weight:normal;}
+.article h3.subtitle{font-weight:normal;font-size:1.55rem;padding-bottom:1.5rem;border-bottom:1px solid var(--secundary-title);margin-bottom:3rem;display:inline-block;}
 
-.article .section div.titlepage{margin-top:4.5rem;margin-bottom:4.5rem;}
-.article .section h2.title{font-size:2rem;text-align:left;padding:0 3rem 1rem 0;letter-spacing:1px;color:var(--argeo-night);margin:0;text-transform:uppercase;height:3rem;line-height:3rem;border-bottom:.25rem solid var(--argeo-night);}
+.article p {line-height:1.35em;margin-top:0;}
 
-.article .section h2.title:first-letter{font-size:5rem;display:inline-block;vertical-align:middle;font-weight:normal;color:var(--argeo-night);}
+.article .section div.titlepage{margin-top:3rem;margin-bottom:3rem;}
+.article .section h2.title{font-size:2rem;text-align:left;letter-spacing:1px;color:var(--argeo-night);border-left:1rem solid var(--light-text);margin:0;font-variant:small-caps;height:3rem;line-height:3rem;padding:.5em 1em;background-color:rgb(250,250,250);}
+
 
 .article .section h2.title a{display:none;}
 
 .article .section p{text-align:left}
-.article .section strong{color:var(--primary-title);font-size:1.05em;letter-spacing:.5px;}
-.article .section a{color:var(--secundary-title);font-weight:bold;letter-spacing:.5px;text-decoration:underline;display:inline-block;padding:.25rem .5rem;}
+.article .section strong{color:var(--primary-title);font-size:1.07em;}
+.article .section a{color:var(--secundary-title);font-weight:bold;letter-spacing:.5px;text-decoration:underline;display:inline-block;padding:0rem .5rem;}
 .article .section a:hover{cursor:pointer;color:white;background-color:var(--secundary-title)}
 .article .section ul{margin-bottom:1.5rem;}
 .article .section ul p{margin:.5rem auto;}
 
-.article .section .qandaset{}
+.article .section .qandaset table{margin-left:2rem;}
 .article .section .qandaset a{letter-spacing:0;color:var(--primary-title);text-decoration:none;}
 .article .section .qandaset a:hover{text-decoration:underline;background-color:var(--light-text);}
-.article .section .qandaset > dl{margin:0;background-color:var(--light-text);padding:3rem;}
+.article .section .qandaset > dl{background-color:var(--light-text);padding:3rem;}
+.article .section .qandaset dl{margin:0;}
+.article .section .qandaset dl dt{margin-bottom:.5rem;}
+
 .article .qandaset table{max-width:910px;}
 .article .qandaset table td{vertical-align:bottom;}
 .article .qandaset table td p{margin-bottom:0;}
-.article .qandaset table td h4{margin-top:4.5rem;color:var(--primary-title);font-size:1.75rem;}
+.article .qandaset table td h4{margin-top:1.5rem;margin-bottom:0.75rem;color:var(--primary-title);font-size:1.5rem;}
 .article .qandaset table tr.question td,.article .qandaset table tr.answer td {position:relative;left:50px;}
-.article .qandaset table tr.question td{color:var(--primary-title);font-weight:bold;font-style:italic;letter-spacing:0;}
-.article .qandaset table tr.question td:nth-child(2){padding-left:.5em;border-bottom:1px solid var(--argeo-night);}
-.article .qandaset table tr.answer td:nth-child(2){padding-left:.5em;}
+.article .qandaset table tr.question{}
+.article .qandaset table tr.question td{color:var(--primary-title);font-weight:bold;font-style:italic;letter-spacing:0;padding-top:.75rem;}
+/*.article .qandaset table tr.question td:nth-child(2){padding-left:.5em;border-bottom:1px solid var(--argeo-night);}
+.article .qandaset table tr.answer td:nth-child(2){padding-left:.5em;}*/
+.article .qandaset table tr.answer td{padding-top:.5rem;}
