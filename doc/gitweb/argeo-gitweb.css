@@ -19,7 +19,7 @@ table{width:100%;}
 
 a {
 	text-decoration:none;
-	color:var(--argeo-night);
+	color:inherit;
 }
 
 select{
