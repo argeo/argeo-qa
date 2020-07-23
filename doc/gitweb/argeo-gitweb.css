@@ -7,10 +7,9 @@ body {
 --secundary-title:#ff8d1f;
 --argeo-light:#f5702e;
 --argeo-night:#00192c;
---light-text:#ddd;
+--light-text:rgb(240,240,240);
 --middle-text:#999;
 --light-bg:rgb(126,147,177);
---light-orange:rgba(245,197,125,1);
 --red:#d55;
 --green:#35A822;
 }
@@ -19,7 +18,7 @@ table{width:100%;}
 
 a {
 	text-decoration:none;
-	color:inherit;
+	color:var(--argeo-night);
 }
 
 select{
@@ -69,8 +68,8 @@ div.page_header {
 	background: var(--argeo-night);
 }
 
-div.page_header a:visited, a.header {
-	color: orange;
+div.page_header a {
+	color: var(--secundary-title);
 }
 
 div.page_header a:hover {
@@ -84,17 +83,20 @@ div.page_nav {
 
 div.page_nav a{
 	display:inline-block;
-	padding:.25rem .5rem;
-	color:var(--primary-title);
+	padding:.25rem .70rem;
+	margin:.25rem;
+	color:var(--secundary-title);
+	border:1px solid var(--secundary-title);
+	font-variant:small-caps;
 }
 
 div.page_nav a:hover{
-	text-decoration:underline;
+	color:var(--light-text);
+	background-color:var(--secundary-title);
+
 }
 
-
 div.page_nav a:visited {
-	color:var(--middle-text);
 }
 
 div.page_nav a:active {
@@ -175,6 +177,7 @@ a.path{
 	padding:.25rem 1rem;
 	margin:0 .5rem;
 	text-decoration:none;
+	background-color:rgba(0,0,0,0.2);
 }
 
 a.path:hover{
@@ -312,20 +315,10 @@ tr.light{
 	background-color: white;
 }
 
-tr.light a.list {
-	color:var(--argeo-night);
-}
-
 tr.dark{
 	color:var(--argeo-night);
 	background-color: var(--light-text);
 }
-
-tr.dark a.list {
-	color:var(--argeo-night);
-}
-
-
 
 
 /* boundary commits in 'blame' view */
@@ -354,7 +347,6 @@ td.link, td.selflink {
 td.link a{
 	display:inline-block;
 	padding:.25rem .5rem;
-	width:80px;
 	text-align:center;
 	text-decoration:none;
 	font-size:90%;
@@ -362,14 +354,36 @@ td.link a{
 	letter-spacing:.5px;
 	color:var(--argeo-night);
 	/* nice yellow : #fe3;*/
-	/*light yellow: #fdff84 */
+	/* light yellow: #fdff84 */
 	/* light orange :#ffc773;*/
 	/* light green: #cf9 */
-	background-color:#ffc773;
+}
+
+td.link a:hover{
+/*	text-decoration:underline;*/
+	background-color:rgba(0,0,0,.2);
 }
 
 td.link a:visited {
-	background-color:#FBFD62;
+}
+
+td a.list{
+	display:inline-block;
+	padding:.25rem .5rem;
+/*	color:rgb(245,245,245);
+	background-color:var(--primary-title);*/
+	border:1px solid var(--primary-title);
+	transition:background .1s;
+}
+
+tr.light td a.list:hover{
+	color:black;
+	background-color:#ccc;
+}
+
+tr.dark td a.list:hover{
+	color:black;
+	background-color:#bbb;
 }
 
 td.selflink {
@@ -416,6 +430,24 @@ table.diff_tree span.file_status.copied {
 table.projects_list {
 	margin-bottom:1rem;
 }
+table.project_list th{
+	color:white;
+	background-color:var(--argeo-night);
+}
+
+table.project_list th a{
+	color:white;
+	background-color:var(--argeo-night);
+}
+
+table.project_list tr td:nth-child(1){
+	width:200px;
+}
+
+table.project_list tr td:nth-child(2){
+	width:375px;
+}
+
 
 /* noage: "No commits" */
 table.project_list td.noage {
