@@ -7,10 +7,13 @@
 		<emphasis role="bold">bring the potential of free/libre open source enterprise software to small and medium-sized organisations</emphasis>
 		(SMEs, ONGs, departments within big companies or administrations).
 	</para>
-	<para>While Argeo GmbH, a European company based in Berlin, provides commercial services around the Argeo platform and applications, and lead their development, the Argeo.org infrastructure is solely focused on development resources. The goal of these resources is to allow current and former Argeo GmbH's clients, as well as the general public, to be able to analyse, use, modify and deploy the provided software.</para>
+	<para>While Argeo GmbH, a European company based in Berlin, provides commercial services around the Argeo platform and applications, and lead their development, the Argeo.org infrastructure is solely focused on development resources. The goal of these resources is to allow current and former Argeo GmbH's clients, as well as the general public, to be able to analyse, use, modify and deploy the provided software.
+	</para>
+
 	<section>
 		<title>Quick Links</title>
-		<section>
+
+		<section layout="4cols">
 			<title>Argeo Platform</title>
 			<para>a platform to quickly develop and deploy enterprise-grade Java applications</para>
 			<itemizedlist>
@@ -95,7 +98,8 @@
 				</itemizedlist>
 			</section>
 		</section>
-		<section>
+
+		<section layout="50-50">
 			<title>Argeo Productivity</title>
 			<para>niche-focused applications improving an organisation's productivity, while providing with full control on its data.</para>
 			<itemizedlist>
@@ -162,13 +166,13 @@
 	</section>
 	<section>
 		<title>Overview</title>
-		<para> The Argeo stack combines third party software and technologies in order to build either focused "tactical" applications (with a single production instance) or full-fledged products (with multiple production instances for various end customers.)</para>
 		<mediaobject>
 			<alt>Argeo technologies overview</alt>
 			<imageobject>
 				<imagedata width="800px" align="center" format="PNG" fileref="images/argeo-overview-technologies.png" />
 			</imageobject>
 		</mediaobject>
+		<para>The Argeo stack combines third party software and technologies in order to build either focused "tactical" applications (with a single production instance) or full-fledged products (with multiple production instances for various end customers.)</para>
 	</section>
 	<section>
 		<title>FAQ</title>
