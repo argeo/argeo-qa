@@ -161,6 +161,7 @@ em.comment {
     font-weight:bold;
     text-decoration:underline;
 }
+
 hr {
     height: 1px;
     color: #000;
@@ -175,7 +176,7 @@ hr {
 /* JXR style sheet */
 
 pre {
-	color:var(--java);
+	color:rgb(80,80,80);
 }
 
 
