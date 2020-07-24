@@ -7,7 +7,7 @@ body {
 /* colors */
 --primary-title:#00294b;
 --secundary-title:#ff8d1f;
---alternative-blue:#47b;/*original:#47a;*/
+--javadoc:#47b;/*original:#47a;*/
 --java:#449;
 --argeo-night:#00192c;
 --light-text:rgb(240,240,240);
@@ -39,7 +39,7 @@ h3 a{
     display:block;
     text-align:center;
     padding:.5rem 1rem;
-    background-color:var(--alternative-blue);
+    background-color:var(--javadoc);
 }
 a {
     color:inherit;
@@ -157,9 +157,16 @@ em.comment {
 }
 
 #overview a{
-    color:#036;
-    font-weight:bold;
-    text-decoration:underline;
+	padding:.5rem 1rem;
+    color:var(--javadoc);
+	background-color:rgb(245,245,245);
+	transition: all .5s;
+}
+
+#overview a:hover{
+	text-decoration:none;
+	color:var(--secundary-title);
+    background-color:var(--light-text);
 }
 
 hr {
@@ -181,10 +188,15 @@ pre {
 
 
 pre a{
-	color:white;
-    background-color:var(--alternative-blue);;
+	color:var(--argeo-night);
     padding:0.25rem .25rem;
 }
+
+pre a:hover{
+	color:var(--secundary-title);
+	text-decoration:none;
+}
+
 
 .jxr_linenumber{
     display:inline-block;
@@ -197,17 +209,17 @@ pre a{
 
 .jxr_comment
 {
-    color: var(--green);
+    color: var(--javadoc);
 }
 
 .jxr_javadoccomment
 {
-    color: var(--red);
+    color: var(--javadoc);
 }
 
 .jxr_string
 {
-    color: var(--secundary-title);
+    color: var(--javadoc);
 }
 
 .jxr_keyword
