@@ -361,7 +361,7 @@ td.link a{
 
 td.link a:hover{
 /*	text-decoration:underline;*/
-	background-color:rgba(0,0,0,.2);
+	color:var(--secundary-title);
 }
 
 td.link a:visited {
@@ -371,19 +371,17 @@ td a.list{
 	display:inline-block;
 	padding:.25rem .5rem;
 /*	color:rgb(245,245,245);
-	background-color:var(--primary-title);*/
+	background-color:var(--primary-title);
 	border:1px solid var(--primary-title);
-	transition:background .1s;
+	transition:background .1s;*/
 }
 
 tr.light td a.list:hover{
-	color:black;
-	background-color:#ccc;
+	color:var(--secundary-title);
 }
 
 tr.dark td a.list:hover{
-	color:black;
-	background-color:#bbb;
+	color:var(--secundary-title);
 }
 
 td.selflink {
