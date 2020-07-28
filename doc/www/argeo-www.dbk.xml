@@ -99,7 +99,7 @@
 			</section>
 		</section>
 
-		<section layout="50-50">
+		<section>
 			<title>Argeo Productivity</title>
 			<para>niche-focused applications improving an organisation's productivity, while providing with full control on its data.</para>
 			<itemizedlist>
@@ -166,13 +166,13 @@
 	</section>
 	<section>
 		<title>Overview</title>
+		<para>The Argeo stack combines third party software and technologies in order to build either focused "tactical" applications (with a single production instance) or full-fledged products (with multiple production instances for various end customers.)</para>
 		<mediaobject>
 			<alt>Argeo technologies overview</alt>
 			<imageobject>
 				<imagedata width="800px" align="center" format="PNG" fileref="images/argeo-overview-technologies.png" />
 			</imageobject>
 		</mediaobject>
-		<para>The Argeo stack combines third party software and technologies in order to build either focused "tactical" applications (with a single production instance) or full-fledged products (with multiple production instances for various end customers.)</para>
 	</section>
 	<section>
 		<title>FAQ</title>
