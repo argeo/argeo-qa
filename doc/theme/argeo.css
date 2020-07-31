@@ -47,7 +47,7 @@ main content
 .book, .chapter, .section {max-width:1024px;margin:auto;}
 
 @media all and (max-width:1050px) {
-	.book, .chapter, .section {padding-left:1rem;padding-right:1rem;}
+	.book, .chapter, .navheader + .section{padding-left:1rem;padding-right:1rem;}
 }
 
 
