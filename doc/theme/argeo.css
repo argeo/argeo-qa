@@ -1,8 +1,10 @@
 /*
 ARGEO docbook styles
-last revision : July 23th,2020
+last revision : July 31th,2020
 */
 
+html{
+}
 
 body{
 margin:0;
@@ -42,13 +44,19 @@ table tr:nth-child(2) th{color:var(--light-text);}
 main content
 */
 
-.book, .chapter, .section {box-sizing:border-box; max-width:1024px;margin:auto;}
+.book, .chapter, .section {max-width:1024px;margin:auto;}
+
+@media all and (max-width:1050px) {
+	.book, .chapter, .section {padding-left:1rem;padding-right:1rem;}
+}
+
+
 h1,h2{color:var(--primary-title);}
 h3{color:var(--secundary-title);}
 
 h1{font-size:2.5rem;}
 h2{font-size:1.75rem;}
-pre.screen{padding:1rem; color:white; background-color:#333;border-radius:0.5em;font-size:1.1em;}
+pre.screen{padding:1rem; color:white; background-color:#333;border-radius:0.5em;font-size:1.1em;white-space:pre-wrap;}
 code.filename{background-color:var(--light-text);display:inline-block;padding:.5em;margin:0 .5em;position:relative;top:-1px;}
 
 /*
@@ -145,8 +153,7 @@ article
 
 
 .article .mediaobject{/*width:70%;float:right;margin-left:30px;margin-bottom:30px;*/}
-.article .mediaobject table{width:800px;margin:auto;}
-.article .mediaobject table img{width:100%;max-width:800px;}
+.article .mediaobject table img{width:100%;max-width:800px;margin:auto;}
 .article .mediaobject + p{
 	display:block;
 	line-height:1.85em;
